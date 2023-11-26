@@ -44,7 +44,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         internal static bool startCharRx;  // indicates start of message detected
         internal static byte LEDlevel = 0; // locally held and updated brigntness level
         static bool dataRx = false;  // indicates that data is available to read (not used actively)
-        private static bool arduinoStatus = false;  // on/off status (on can be zero level too)
+        private static bool arduinoStatus = false;  // Panel on/off status (on can be zero level too)
         static int baud = 19200;
         private static SerialPort Serial;  // my serial port instance of ASCOM serial port
 
@@ -419,7 +419,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         internal static void CalibratorOff()
         {
             CalibratorOn(0);
-            arduinoStatus = false;  // off
+            arduinoStatus = false;  // off, but connected
             return;
         }
 
