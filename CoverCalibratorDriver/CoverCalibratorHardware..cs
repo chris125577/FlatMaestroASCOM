@@ -164,6 +164,8 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         /// if set to <c>true</c> the string is transmitted 'as-is'.
         /// If set to <c>false</c> then protocol framing characters may be added prior to transmission.
         /// </param>
+       
+        // CommandBlind, CommandBool and CommandString are not used
         public static void CommandBlind(string command, bool raw)
         {
             CheckConnected("CommandBlind");
@@ -177,7 +179,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             return (CommandString(command, raw) == "1");// return state of command from arduino
         }
 
-            public static string CommandString(string command, bool raw)
+        public static string CommandString(string command, bool raw)
         {
             CheckConnected("CommandString");
             
@@ -192,23 +194,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             }
         }
 
-        /// <summary>
-        /// Deterministically release both managed and unmanaged resources that are used by this class.
-        /// </summary>
-        /// <remarks>
-        /// TODO: Release any managed or unmanaged resources that are used in this class.
-        /// 
-        /// Do not call this method from the Dispose method in your driver class.
-        ///
-        /// This is because this hardware class is decorated with the <see cref="HardwareClassAttribute"/> attribute and this Dispose() method will be called 
-        /// automatically by the  local server executable when it is irretrievably shutting down. This gives you the opportunity to release managed and unmanaged 
-        /// resources in a timely fashion and avoid any time delay between local server close down and garbage collection by the .NET runtime.
-        ///
-        /// For the same reason, do not call the SharedResources.Dispose() method from this method. Any resources used in the static shared resources class
-        /// itself should be released in the SharedResources.Dispose() method as usual. The SharedResources.Dispose() method will be called automatically 
-        /// by the local server just before it shuts down.
-        /// 
-        /// </remarks>
+
         public static void Dispose()
         {
             try { LogMessage("Dispose", $"Disposing of assets and closing down."); } catch { }
@@ -252,22 +238,24 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             set
             {
                 LogMessage("Connected", $"Set {value}");
-                if (value == IsConnected)
+                if (value == IsConnected) // already the same state
                     return;
 
-                if (value)
+                if (value) // connect
                 {
                     LogMessage("Connected Set", $"Connecting to port {comPort}");
 
-                    if (!OpenArduino())
+                    if (!OpenArduino())  // try to connect to Arduino, if error, reset
                     {
-                        CalibratorOff(); // turn off light when disconnecting
                         Serial.Close();
+                        Serial.Dispose();
+                        connectedState = false;
+                        LEDlevel = 0;
+                        LogMessage("Connected Set", $"Failed to connect to port {comPort}");
                     }
-
-                    connectedState = true;
+                    else connectedState = true;
                 }
-                else
+                else  // disconnect
                 {
                     LogMessage("Connected Set", $"Disconnecting from port {comPort}");
                     Serial.Close();  //disconnect to serial
