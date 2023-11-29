@@ -1,6 +1,6 @@
 namespace ASCOM.FlatMaestro.CoverCalibrator
 {
-    partial class SetupDialogForm
+    partial class SetupLEDdriver
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupDialogForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupLEDdriver));
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -119,7 +119,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             this.comboBoxComPort.Size = new System.Drawing.Size(128, 33);
             this.comboBoxComPort.TabIndex = 7;
             // 
-            // SetupDialogForm
+            // SetupLEDdriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +135,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SetupDialogForm";
+            this.Name = "SetupLEDdriver";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlatMaestro 1.1";

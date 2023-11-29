@@ -121,7 +121,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             if (IsConnected)
                 MessageBox.Show("Already connected, just press OK");
 
-            using (SetupDialogForm F = new SetupDialogForm(tl))
+            using (SetupLEDdriver F = new SetupLEDdriver(tl))
             {
                 var result = F.ShowDialog();
                 if (result == DialogResult.OK)
