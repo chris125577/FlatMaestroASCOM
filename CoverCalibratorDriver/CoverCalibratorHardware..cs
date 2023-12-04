@@ -3,6 +3,7 @@
 // Description:	 ASCOM driver for LED flat panel via Arduino FlatMaster project
 //  Serial command sends brightness over serial interface and receives the same as string.0=off
 // Implements:	ASCOM CoverCalibrator interface version: 1.1
+// V 1.2    changes brightness range from 0-255 to 0-100
 // Author:		(CJW) Chris Woodhouse cwoodhou@icloud.com
 //
 
@@ -27,6 +28,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         internal const string comPortDefault = "COM1";
         internal const string traceStateProfileName = "Trace Level";
         internal const string traceStateDefault = "true";
+        internal const byte maxlevel = 100;  // maximum brightness level
 
         private static string DriverProgId = ""; // ASCOM DeviceID (COM ProgID) for this driver, the value is set by the driver's class initialiser.
         private static string DriverDescription = ""; // The value is set by the driver's class initialiser.
@@ -393,7 +395,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         {
             get
             {
-                return (255);
+                return (maxlevel);
             }
         }
 
@@ -403,7 +405,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
         /// <param name="Brightness"></param>
         internal static void CalibratorOn(int Brightness)
         {
-            if ((Brightness >= 0) && (Brightness < 256))  // check legitimate value
+            if ((Brightness >= 0) && (Brightness <= maxlevel))  // check legitimate value
             {
                 LEDlevel = (byte)Brightness; // update local value
                 Serial.Write(LEDlevel.ToString() + endChar);

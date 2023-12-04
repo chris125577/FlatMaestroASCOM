@@ -44,7 +44,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdOK.Location = new System.Drawing.Point(346, 154);
-            this.cmdOK.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmdOK.Margin = new System.Windows.Forms.Padding(6);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(118, 46);
             this.cmdOK.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.Location = new System.Drawing.Point(346, 212);
-            this.cmdCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmdCancel.Margin = new System.Windows.Forms.Padding(6);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(118, 48);
             this.cmdCancel.TabIndex = 1;
@@ -80,7 +80,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             this.picASCOM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picASCOM.Image = ((System.Drawing.Image)(resources.GetObject("picASCOM.Image")));
             this.picASCOM.Location = new System.Drawing.Point(368, 17);
-            this.picASCOM.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.picASCOM.Margin = new System.Windows.Forms.Padding(6);
             this.picASCOM.Name = "picASCOM";
             this.picASCOM.Size = new System.Drawing.Size(48, 56);
             this.picASCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -103,7 +103,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             // 
             this.chkTrace.AutoSize = true;
             this.chkTrace.Location = new System.Drawing.Point(44, 227);
-            this.chkTrace.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkTrace.Margin = new System.Windows.Forms.Padding(6);
             this.chkTrace.Name = "chkTrace";
             this.chkTrace.Size = new System.Drawing.Size(129, 29);
             this.chkTrace.TabIndex = 6;
@@ -114,7 +114,7 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             // 
             this.comboBoxComPort.FormattingEnabled = true;
             this.comboBoxComPort.Location = new System.Drawing.Point(154, 167);
-            this.comboBoxComPort.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.comboBoxComPort.Margin = new System.Windows.Forms.Padding(6);
             this.comboBoxComPort.Name = "comboBoxComPort";
             this.comboBoxComPort.Size = new System.Drawing.Size(128, 33);
             this.comboBoxComPort.TabIndex = 7;
@@ -132,13 +132,13 @@ namespace ASCOM.FlatMaestro.CoverCalibrator
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SetupLEDdriver";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FlatMaestro 1.1";
+            this.Text = "FlatMaestro 1.2";
             this.Load += new System.EventHandler(this.SetupDialogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picASCOM)).EndInit();
             this.ResumeLayout(false);
