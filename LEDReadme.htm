@@ -1175,22 +1175,22 @@ break-word'>
 <p>FLATMAESTRO</p>
 
 <p>This is an ideal first project which implements an ASCOM controlled light
-panel.<span style='mso-spacerun:yes'>  </span>This uses the ASCOM covercalibrator
+panel.<span style='mso-spacerun:yes'>Â  </span>This uses the ASCOM covercalibrator
 class and implements the controls for connecting, reading and setting the
 brightness and turning it off.</p>
 
 <p>It interfaces to an Arduino microcontroller board, which broadcasts a string
 of its brightness level every 2 seconds with the syntax;</p>
 
-<p><span style='mso-spacerun:yes'> </span>$nnn#<span
-style='mso-spacerun:yes'>    </span>where nnn is a number 0-255</p>
+<p><span style='mso-spacerun:yes'>Â </span>$nnn#<span
+style='mso-spacerun:yes'>Â Â Â  </span>where nnn is a number 0-100 (revised)</p>
 
 <p>This driver reads the incoming stream and updates its local brightness
-value.</p>
+value. It must be used with arduino version 1.2 software</p>
 
 <p>The driver commands the Arduino with the string</p>
 
-<p>nnn#<span style='mso-spacerun:yes'>    </span>where nnn is the brightness
+<p>nnn#<span style='mso-spacerun:yes'>Â Â Â  </span>where nnn is the brightness
 level. It sends a 0# when it turns off.</p>
 
 <p>For info, the Arduino unit defaults to off when it is first powered and
